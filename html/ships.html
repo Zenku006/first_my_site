@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./../images/icons/icon.png">
+    <title data-lang-key="ships_title">Космические корабли</title>
+    <link rel="stylesheet" href="./../css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <h1 data-lang-key="ships_spaceships_h1">Космические корабли</h1>
+            <nav class="nav">
+                <!-- Кнопка для бургер-меню -->
+                <button class="burger" id="burger-btn" aria-label="Открыть меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a data-lang-key="home" href="./../index.html">Главная</a>
+                    <li><a data-lang-key="about" href="./about.html">О саге</a></li>
+                    <li><a data-lang-key="characters" href="./characters.html">Персонажи</a></li>
+                    <li><a data-lang-key="contact" href="./contacts.html">Контакты</a></li>
+                </ul>
+                <!-- Кнопки переключения языка -->
+                 <div class="language-switcher">
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                    <button class="lang-btn" data-lang="uk">UA</button>
+                </div>
+            </nav>
+        </header>
+        <main class="main">
+
+            <section class="nav-ships">
+                <a data-lang-key="ships_nav_ships_fighters_a" href="#fighters">Истребители</a>
+                <a data-lang-key="ships_nav_ships_freighters_a" href="#freighters">Грузовые корабли</a>
+                <a data-lang-key="ships_nav_ships_destroyers_a" href="#destroyers">Звёздные разрушители</a>
+            </section>
+
+            <section id="fighters">
+                <h2 data-lang-key="ships_fighters_fighters_h2">Истребители</h2>
+                <div class="ship-card">
+                    <h3 data-lang-key="ships_fighters_X_Wing_h2">X-Wing/Крестокрыл</h3>
+                    <div class="bg-X_Wing ships-img"></div>
+                    <section>
+                        <video controls width="320" height="180">
+                            <source src="./../videos/X-wing.mp4" type="video/mp4">
+                        </video>
+                    </section>
+                    <p data-lang-key="ships_fighters_X_Wing_p"><strong>Описание:</strong> Истребители X-wing были разработаны 
+                        для воздушных боев и длительных миссий. Во время Галактической 
+                        гражданской войны Альянс повстанцев использовал модели истребителей X-wing, 
+                        такие как истребитель T-65B X-wing и T-65C-A2 X-wing во многих 
+                        сражениях, развертывая X-wing в таких сражениях, как Атака на Лотал, 
+                        Битва при Явине, Битва при Эндоре и Битва за Джакку.</p>
+                    <p data-lang-key="ships_fighters_X_Wing_length_p"><strong>Длина:</strong> 12,5 м</p>
+                    <p data-lang-key="ships_fighters_X_Wing_armament_p"><strong>Вооружение:</strong> Лазерные пушки, протонные торпеды</p>
+                </div>
+                <div class="ship-card">
+                    <h3 data-lang-key="ships_fighters_TIE_Fighter_h3">TIE-Истребитель/СИД-Истребитель</h3>
+                    <div class="bg-TIE_Fighter ships-img"></div>
+                    <p  data-lang-key="ships_fighters_TIE_Fighter_p"><strong>Описание:</strong> Истребитель космического превосходства TIE/ln, 
+                        обычно называемый истребителем TIE/LN, истребителем TIE/line, 
+                        истребителем TIE или T/F, был стандартным имперским истребителем, 
+                        который можно было увидеть в огромных количествах на протяжении 
+                        большей части Галактической гражданской войны и далее. Иногда, 
+                        из-за их отличительной формы, пилоты повстанцев и Новой Республики 
+                        называли этот корабль «глазными яблоками».</p>
+                    <p data-lang-key="ships_fighters_TIE_Fighter_length_p"><strong>Длина:</strong> 8,99 м</p>
+                    <p data-lang-key="ships_fighters_TIE_Fighter_armament_p"><strong>Вооружение:</strong> Лазерные пушки</p>
+                </div>
+            </section>
+        
+            <section id="freighters">
+                <h2 data-lang-key="ships_freighters_freighters_h2">Грузовые корабли</h2>
+                <div class="ship-card">
+                    <h3 data-lang-key="ships_freighters_Millennium_Falcon_h3">Тысячелетний Сокол</h3>
+                    <div class="bg-Millennium_Falcon ships-img"></div>
+                    <p data-lang-key="ships_freighters_Millennium_Falcon_p"><strong>Описание:</strong> Тысячелетний сокол, первоначально обозначенный как YT 492727ZED и ранее 
+                        известный как Stellar Envoy, и зарегистрированный или известный под различными псевдонимами, был 
+                        кореллианским легким грузовым судном YT-1300, построенным около 60 лет до битвы при Явине. Заработав 
+                        легендарный статус под своим владением, корабль наиболее известен тем, что использовался 
+                        контрабандистами Ханом Соло и Чубаккой до, во время и после Галактической гражданской войны.</p>
+                    <p data-lang-key="ships_freighters_Millennium_Falcon_length_p"><strong>Длина:</strong> 34,75 м</p>
+                    <p data-lang-key="ships_freighters_Millennium_Falcon_armament_p"><strong>Особенность:</strong> Кессельский пробег за 12 парсеков.</p>
+                </div>
+            </section>
+        
+            <section id="destroyers">
+                <h2 data-lang-key="ships_destroyers_destroyers_h2">Звёздные разрушители</h2>
+                <div class="ship-card">
+                    <h3 data-lang-key="ships_destroyers_Imperial_Star_Destroyer_h3">Имперский Звездный Разрушитель</h3>
+                    <div class="bg-Imperial_Star_Destroyer ships-img"></div>
+                    <p data-lang-key="ships_destroyers_Imperial_Star_Destroyer_p"><strong>Описание:</strong> Главный  военный корабль Имперского флота и символ 
+                        Имперской мощи.Эти огромные капитальные корабли используются для исполнения воли Императора,
+                        поддержки поддерживаемых Империей правительств и выступают в качестве
+                        мобильных штабов для старших имперских командиров. Считается, что одного Звездного Разрушителя достаточно, 
+                        чтобы сокрушить мятежную планету, хотя крупные индустриальные миры могут быть 
+                        атакованы флотом из шести Звездных Разрушителей с крейсерами поддержки и судами 
+                        снабжения. Глубоко залегающие бункеры для выживания считаются последним убежищем 
+                        в случае планетарной бомбардировки Имперскими Звездными Разрушителями.</p>
+                    <p data-lang-key="ships_destroyers_Imperial_Star_Destroyer_length_p"><strong>Длина:</strong> 1,600 м</p>
+                    <p data-lang-key="ships_destroyers_Imperial_Star_Destroyer_armament_p"><strong>Вооружение:</strong> Лазерные турели, ионные пушки, тяговый луч</p>
+                </div>
+            </section>
+            <article>
+        </main>
+        <footer class="footer">
+            <p data-lang-key="footer">&copy; 2024 Мир Звёздных войн</p>
+        </footer>
+    </div>
+    <script src="./../js/lang.js"></script>
+    <script src="./../js/script.js"></script>
+</body>
+</html>

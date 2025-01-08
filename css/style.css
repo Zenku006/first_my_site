@@ -1,0 +1,821 @@
+/* Основные стили */
+
+:root {
+    --primary-color: #ffe81f;
+    --background-color: #1a1a1a;
+    --border-color: #1fa6ff;
+    --text-color: #ffffff;
+    --secondary-text-color: #b3b3b3;
+    --card-color: #2c2c2e;
+    --accent-red: #ff3c00;
+    --accent-green: #09ff00;
+    --accent-blue: #1e90ff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Обеспечиваем полное покрытие */
+    overflow-x: hidden; /* Убираем горизонтальный скролл */
+    color: var(--text-color);
+    background-color: #000;
+    background-image: url('./../images/background-image.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+/* https://starwars-visualguide.com/assets/img/categories/films.png */
+/* Заголовок */
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+
+/* Меню */
+
+.header {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.nav {
+    position: relative;
+}
+
+/* Основные стили для .nav-links */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    z-index: 10; /* Устанавливаем высокий слой */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.2em;
+    position: relative;
+    padding: 5px 10px;
+    text-align: center;
+    display: inline-block; /* Для корректной работы псевдоэлемента */
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+/* Стили для кнопки-бургера */
+.burger {
+    display: none; /* Скрываем на больших экранах */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.burger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+/* Адаптивные стили для мобильной версии */
+@media (max-width: 768px) {
+    .header .nav{
+        float: right;
+    }
+    .burger {
+        display: flex;
+    }
+    .nav-links {
+        display: none; /* Скрываем меню по умолчанию */
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #333333;
+        padding: 15px;
+        border-radius: 5px;
+        z-index: 1000; /* Гарантируем, что меню будет над основным содержимым */
+    }
+
+    .nav-links.active {
+        display: flex; /* Показываем меню, если добавлен класс */
+    }
+}
+
+/* Анимация кнопки при активации */
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+/* Стили для кнопки перевода */
+
+.language-switcher {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.lang-btn {
+    padding: 5px 10px;
+    border: 2px solid #ffe81f;
+    background: transparent;
+    color: #ffe81f;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: all 0.3s;
+}
+
+.lang-btn:hover {
+    background: #ffe81f;
+    color: #000;
+}
+
+/* Основной контент */
+.main {
+    padding: 40px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 800px;
+}
+
+.main h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+
+.main p, .main ul {
+    font-size: 1.2em;
+    line-height: 1.6em;
+}
+
+.main ul {
+    list-style: none;
+    padding: 0;
+}
+
+.main ul li {
+    margin-bottom: 10px;
+}
+
+.main img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border: 3px solid var(--primary-color);
+    border-radius: 10px;
+}
+
+.main iframe {
+    margin: 20px 0;
+    border: 3px solid var(--primary-color);
+    border-radius: 10px;
+}
+
+/* Основные стили для видео и аудио */
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto; /* Центрирование на странице */
+    border: 2px solid var(--primary-color); /* Используем основной цвет */
+    border-radius: 8px; /* Закругление углов */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень для визуального эффекта */
+}
+
+/* Стили контейнеров для секций */
+section {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--card-color); /* Цвет карточки */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Лёгкая тень */
+    max-width: 800px; /* Ограничение ширины */
+}
+
+section h2, section h3 {
+    text-align: center;
+    color: var(--primary-color); /* Основной цвет заголовка */
+    margin-bottom: 10px;
+}
+
+section p {
+    text-align: justify; /* Выравнивание текста */
+    color: var(--secondary-text-color); /* Второстепенный цвет текста */
+}
+
+/* Для аудио с подписями */
+.audio-caption {
+    text-align: center;
+    font-size: 14px;
+    color: var(--secondary-text-color);
+    margin-top: 5px;
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 600px) {
+    video {
+        max-width: 90%; /* Сужаем, чтобы элемент помещался */
+    }
+
+    section {
+        padding: 15px;
+    }
+}
+
+video:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+audio {
+    max-width: 100%; /* Ограничиваем ширину для адаптивности */
+    display: block;
+    margin: 10px auto;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+audio::-webkit-media-controls-panel {
+    color: #ffe81f; /* Жёлтый цвет текста */
+}
+
+audio:hover {
+    transform: scale(1.02); /* Увеличение при наведении */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+
+.about{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.about img{
+    margin: auto;
+}
+
+.animated-image {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    border: 2px solid #555;
+    animation: fadeIn 2s ease-in-out;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+.poster {
+    display: flex;
+    justify-content: center; /* Центрирует содержимое по горизонтали */
+    gap: 20px; /* Расстояние между изображениями */
+    margin: 20px 0; /* Отступы сверху и снизу */
+    padding: 0; /* Убираем дополнительные отступы */
+    list-style: none; /* Убираем маркеры списка */
+}
+
+.poster li {
+    width: auto; /* Убираем ограничение ширины */
+    height: auto; /* Сохраняет пропорции */
+    border: 3px solid var(--primary-color); /* Золотистая рамка для украшения */
+    border-radius: 10px; /* Слегка округлённые углы */
+    overflow: hidden; /* Прячет содержимое, выходящее за границы */
+    transition: all 0.3s; /* Анимация при наведении */
+}
+
+.poster li:hover {
+    transform: scale(1.1); /* Увеличивает изображение при наведении */
+}
+
+.bg-poster1,
+.bg-poster2,
+.bg-poster3 {
+    background-repeat: no-repeat;
+}
+
+.bg-poster1 {
+    width: 155px; height: 230px;
+    background: url('./../images/posters/css_sprite_poster.png') -10px -10px;
+}
+
+.bg-poster2 {
+    width: 155px; height: 230px;
+    background: url('./../images/posters/css_sprite_poster.png') -185px -10px;
+}
+
+.bg-poster3 {
+    width: 155px; height: 230px;
+    background: url('./../images/posters/css_sprite_poster.png') -360px -10px;
+}
+
+
+/* Устанавливаем базовые стили для текста и изображений */
+.container {
+    width: 80%;
+    margin: 40px auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+img {
+    object-fit: cover; /* Изображение адаптируется к доступной области */
+}
+
+
+/* Основные стили для блока content */
+.content {
+    display: flex; /* Используем Flexbox для размещения текста и изображения */
+    flex-wrap: wrap; /* Позволяем переносить элементы на новую строку */
+    align-items: center; /* Вертикальное выравнивание для элементов */
+    gap: 20px; /* Расстояние между текстом и изображением */
+    justify-content: space-between; /* Распределяем пространство между элементами */
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+.content img {
+    max-width: 40%; /* Изображение занимает 40% ширины контейнера */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    border-radius: 8px; /* Скругление углов */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для изображений */
+    transition: all 0.3s; /* Анимация при наведении */
+}
+
+.content img:hover{
+    transform: scale(1.1);
+}
+
+.content p {
+    flex: 1; /* Текст занимает оставшееся пространство */
+    color: var(--text-color); /* Используем стандартный цвет текста */
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 600px) {
+    .content {
+        flex-direction: column; /* Меняем направление элементов на столбец */
+        align-items: center; /* Центрируем элементы внутри */
+        text-align: center; /* Центрируем текст */
+    }
+
+    .content img {
+        max-width: 80%; /* Увеличиваем ширину изображения на мобильных устройствах */
+    }
+
+    .content p {
+        font-size: 14px; /* Уменьшаем размер шрифта для компактности */
+    }
+}
+
+/* Цитаты и моменты "Персонажи" */
+
+.list-of-quotes-moments {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #444;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+.list-of-quotes-moments h2 {
+    font-size: 2em;
+    text-align: center;
+    color: #feda4a;
+    margin-bottom: 20px;
+}
+.list-of-quotes-moments p {
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.list-of-quotes-moments ul {
+    list-style-type: none;
+    padding: 0;
+}
+.list-of-quotes-moments li {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid #feda4a;
+    border-radius: 4px;
+}
+.list-of-quotes-moments li:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.05);
+}
+.list-of-quotes-moments li br {
+    display: none;
+}
+.list-of-quotes-moments li strong {
+    color: #feda4a;
+}
+
+/* Адаптив списка */
+
+@media (max-width: 768px) {
+    .list-of-quotes-moments h2 {
+        font-size: 1.8em;
+    }
+    .list-of-quotes-moments p {
+        font-size: 1em;
+    }
+    .list-of-quotes-moments li {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+}
+@media (max-width: 480px) {
+    .list-of-quotes-moments h2 {
+        font-size: 1.5em;
+    }
+    .list-of-quotes-moments p {
+        font-size: 0.9em;
+    }
+    .list-of-quotes-moments li {
+        font-size: 0.8em;
+        padding: 6px;
+    }
+}
+
+/* Дополнительные стили для страницы "О саге" */
+/* .photo-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.photo-row img {
+    width: 150px;
+    height: auto;
+    border: 3px solid var(--primary-color);
+    border-radius: 10px;
+} */
+
+/* Слайдер */
+
+.slider {
+    position: relative;
+    width: 30%;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+  
+.slide {
+    min-width: 100%;
+    max-height: 540px;
+    padding: 20px;
+    text-align: center;
+    background: var(--text-color);
+    border: 1px solid #ddd;
+}
+  
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+  
+.slider-button.prev {
+    left: 10px;
+}
+  
+.slider-button.next {
+    right: 10px;
+}
+  
+.slider-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.slider-dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+  
+.slider-dot.active {
+    background: #333;
+}
+  
+  
+  /* Адаптивные стили */
+  
+  /* Для планшетов и больших экранов */
+@media (min-width: 768px) {
+    .slider {
+      width: 70%;
+      max-width: 800px;
+    }
+  
+    .slide {
+      padding: 30px;
+      font-size: 1.2em;
+    }
+  
+    .slider-button {
+      padding: 15px 20px;
+      font-size: 20px;
+      width: 50px;
+      height: 50px;
+    }
+  
+    .slider-dot {
+      width: 14px;
+      height: 14px;
+    }
+}
+  
+  /* Для мобильных устройств */
+@media (max-width: 767px) {
+    .slider {
+      width: 90%;
+      max-width: 100%;
+    }
+  
+    .slide {
+      padding: 15px;
+      font-size: 1em;
+    }
+  
+    .slider-button {
+      padding: 8px 12px;
+      font-size: 16px;
+      width: 35px;
+      height: 35px;
+    }
+  
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+    }
+}
+
+/* Космические корабли */
+
+
+
+
+/* Старый стиль .nav-ships {
+    text-align: center;
+    margin: 20px 0;
+}
+.nav-ships a {
+    text-align: center;
+    justify-content: center;
+    transition: all color 0.3s;
+    border: 2px solid transparent;
+    color: var(--accent-blue);
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.nav-ships a:hover{
+    border-bottom: 2px solid var(--accent-blue);
+} */
+
+/* новый стиль списка */
+.nav-ships {
+    text-align: center;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-ships a {
+    position: relative;
+    text-decoration: none;
+    color: var(--accent-blue);
+    font-size: 1.2em;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-ships a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-blue);
+    transition: width 0.3s ease;
+}
+
+.nav-ships a:hover {
+    color: var(--primary-color);
+}
+
+.nav-ships a:hover::after {
+    width: 100%;
+}
+
+
+
+.ship-card {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+.ship-card .ships-img {
+    margin: auto;
+    max-width: 100%;
+    border-radius: 8px;
+}
+.ship-card h2 {
+    margin: 10px 0;
+}
+
+
+
+
+.bg-X_Wing {
+    width: 400px; height: 200px;
+    background: url('./../images/ships/css_sprites_ships.png') -0 -0;
+}
+
+.bg-TIE_Fighter {
+    width: 400px; height: 200px;
+    background: url('./../images/ships/css_sprites_ships.png') -400px -0;
+}
+
+.bg-Millennium_Falcon {
+    width: 400px; height: 200px;
+    background: url('./../images/ships/css_sprites_ships.png') -800px -0;
+}
+
+.bg-Imperial_Star_Destroyer {
+    width: 400px; height: 200px;
+    background: url('./../images/ships/css_sprites_ships.png') -1200px -0;
+}
+
+
+
+
+/* Подвал */
+.footer {
+    text-align: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--primary-color);
+    border-top: 2px solid var(--primary-color);
+}
+
+/* Чтобы закрепить footer внизу */
+/* Общий сброс отступов */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Устанавливаем высоту wrapper */
+html, body {
+    height: 100%; /* Занимает всю высоту экрана */
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column; /* Размещаем элементы вертикально */
+    min-height: 100vh; /* Минимальная высота — высота экрана */
+}
+
+/* Основное содержимое растягивается */
+.main {
+    flex: 1; /* Занимает всё доступное пространство */
+    padding: 20px;
+}
+
+/* Футер внизу */
+.footer {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 10px;
+    border-top: 2px solid var(--primary-color);
+}
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .main {
+        padding: 30px;
+    }
+}
+
+
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    header, footer {
+        flex-direction: column; /* Перестраиваем в столбец */
+        text-align: center; /* Центрируем содержимое */
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+}
+
+header, footer {
+    margin: 0;
+    padding: 10px 0; /* Только внутренние отступы */
+    box-sizing: border-box; /* Гарантирует, что padding не расширяет элемент */
+}
+
+header, footer {
+    width: 100%;
+}
