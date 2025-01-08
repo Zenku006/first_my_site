@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/icons/icon.png">
+    <title data-lang-key="home_title">Звёздные войны</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <h1 data-lang-key="title">Добро пожаловать в мир Звёздных войн</h1>
+            <nav class="nav">
+                <!-- Кнопка для бургер-меню -->
+                <button class="burger" id="burger-btn" aria-label="Открыть меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <!-- Навигационные ссылки -->
+                <ul class="nav-links" id="nav-links">
+                    <li><a data-lang-key="about" href="./html/about.html">О саге</a></li>
+                    <li><a data-lang-key="characters" href="./html/characters.html">Персонажи</a></li>
+                    <li><a data-lang-key="ships" href="./html/ships.html">Космические корабли</a></li>
+                    <li><a data-lang-key="contact" href="./html/contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+            <!-- Кнопки переключения языка -->
+            <div class="language-switcher">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="uk">UA</button>
+            </div>
+        </header>
+        <main class="main">
+            <section>
+                <h2 data-lang-key="welcome">Добро пожаловать в далёкую-далёкую галактику...</h2>
+                <p data-lang-key="home_welcome_text" id="welcome-text">
+                    «Звёздные войны» — это эпическая история борьбы света и тьмы, которая переносит нас в удивительный мир космоса. 
+                    Погрузитесь в захватывающие приключения джедаев, ситхов, контрабандистов и героев со всех концов галактики.                    
+                </p>
+            </section>
+            <section>
+                <iframe
+                id="iframe-1"
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/omuTFYiVqgA?si=yUsSqoi0oZZFRaCD"
+                title="Star Wars Trailer"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+            </section>
+            <section>
+                <h3 data-lang-key="home_posters">Обложки фильмов</h3>
+                <ul class="poster">
+                    <li><div class="bg-poster1"></div></li>
+                    <li><div class="bg-poster2"></div></li>
+                    <li><div class="bg-poster3"></div></li>
+                </ul>
+                <div class="conteiner">
+                    <h3 data-lang-key="Luke_Skywalker_h3">Люк Скайуокер</h3>
+                    <div class="content">
+                        <img src="./images/characters/Luke Skywalker.jpg" alt="Luke Skywalker">
+                        <p data-lang-key="home_Luke_Skywalker_p">
+                            Люк Скайуо́кер (англ. Luke Skywalker) — один из главных персонажей вселенной 
+                            «Звёздные войны», джедай, сын сенатора с Набу Падме Амидалы Наберри
+                             и рыцаря-джедая Энакина Скайуокера. Старший брат-близнец Леи Органы Соло. 
+                             В оригинальной трилогии и трилогии-сиквеле в роли Люка снялся Марк Хэмилл.
+                        </p>
+                    </div>
+                </div>
+                <div class="conteiner">
+                    <h3 data-lang-key="Leia_Organa_h3">Принцесса Лея</h3>
+                    <div class="content">
+                        <p data-lang-key="home_Leia_Organa_p">
+                            Лея Органа-Соло (англ. Leia Organa Solo) (имя при рождении — Лея Амидала Скайуокер) — 
+                            дочь рыцаря-джедая Энакина Скайуокера и сенатора Падме Амидалы Наберри, а также 
+                            сестра-близнец Люка Скайуокера. После рождения её 
+                            удочерили Бейл Органа и королева Бреха, сделав её 
+                            принцессой Альдераана.
+                        </p>
+                        <img src="./images/characters/Leia Organa.jpg" alt="Leia Organa">
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <p data-lang-key="footer">&copy; 2024 Мир Звёздных войн</p>
+        </footer>
+    </div>
+    <script src="./js/lang.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
