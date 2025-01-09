@@ -351,7 +351,7 @@ var iframeData = {
         iframe2: "https://www.youtube.com/embed/7ZjN5TiYzuI?si=cfZGfOREcpqr3LYx"
     },
     uk: {
-        iframe1: "https://www.youtube.com/embed/T1M62rntzhI?si=P3xnFTjQ62Jrrg4-",
-        iframe2: "https://www.youtube.com/embed/dQw4w9WgXcQ" // Временная ссылка
+        iframe1: "https://www.youtube.com/embed/T1M62rntzhI?si=Z0i1c-XvkRhFtIau",
+        iframe2: "https://www.youtube.com/embed/QHMy8I0NxfE?si=liJImx_noMq5yQnB" // Временная ссылка
     }
 };
