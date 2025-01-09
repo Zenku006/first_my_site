@@ -307,6 +307,10 @@ audio:hover {
     margin: auto;
 }
 
+
+
+
+
 .animated-image {
     display: block;
     margin: 20px auto;
@@ -314,6 +318,8 @@ audio:hover {
     border: 2px solid #555;
     animation: fadeIn 2s ease-in-out;
 }
+
+
 @keyframes fadeIn {
     from {
         opacity: 0;
