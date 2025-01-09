@@ -31,14 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
 
-            // Обновляем iframe на основе языка
-            
-            // У меня не получилось сделать смену iframe при переводе
+            // Обновляем src для iframe, если они есть на текущей странице
+            if (iframeData[lang]) {
+              var iframe1 = document.getElementById("iframe-1");
+              var iframe2 = document.getElementById("iframe-2");
 
-            // if (iframeData[lang]) {
-            //   document.getElementById('iframe-1').src = iframeData[lang].iframe1;
-            //   document.getElementById('iframe-2').src = iframeData[lang].iframe2;
-            // }
+              if (iframe1) iframe1.src = iframeData[lang].iframe1;
+              if (iframe2) iframe2.src = iframeData[lang].iframe2;
+          }
 
             // Сохраняем текущий язык в localStorage
             localStorage.setItem("language", lang);
@@ -159,3 +159,36 @@ function updateAudioSources(language) {
         audio.load();
     });
 }
+
+
+// Функция для обновления src всех iframe
+function updateIframes(lang) {
+  // Проверяем, есть ли данные для указанного языка
+  if (iframeData[lang]) {
+      // Получаем ссылки из объекта данных
+      var data = iframeData[lang];
+      // Обновляем src для каждого iframe
+      document.getElementById("iframe-1").src = data.iframe1;
+      document.getElementById("iframe-2").src = data.iframe2;
+  } else {
+      console.error(`Нет данных для языка: ${lang}`);
+  }
+}
+
+// Добавляем обработчики событий для кнопок
+document.querySelectorAll(".lang-btn").forEach(button => {
+  button.addEventListener("click", () => {
+      var selectedLang = button.dataset.lang; // Получаем язык из data-lang
+      updateIframes(selectedLang); // Обновляем iframe на выбранный язык
+      localStorage.setItem("language", Lang);
+  });
+});
+
+// Обновляем iframe на основе языка
+            
+            // У меня не получилось сделать смену iframe при переводе
+
+            // if (iframeData[lang]) {
+            //   document.getElementById('iframe-1').src = iframeData[lang].iframe1;
+            //   document.getElementById('iframe-2').src = iframeData[lang].iframe2;
+            // }
