@@ -13,6 +13,39 @@ document.addEventListener("DOMContentLoaded", () => {
     burgerBtn.addEventListener("click", toggleMenu);
 });
 
+// Скролл
+
+var headerEl = document.getElementById("header");
+var isHeaderMini = false;
+
+window.addEventListener("scroll", function () {
+    var scrollPos = window.scrollY;
+
+    if (scrollPos >= 1 && !isHeaderMini) {
+        headerEl.classList.add("header_mini");
+        isHeaderMini = true;
+    } else if (scrollPos < 1 && isHeaderMini) {
+        headerEl.classList.remove("header_mini");
+        isHeaderMini = false;
+    }
+});
+
+
+// var observer = new IntersectionObserver(
+//     ([entry]) => {
+//         if (!entry.isIntersecting) {
+//             header.classList.add("header_mini");
+//         } else {
+//             header.classList.remove("header_mini");
+//         }
+//     },
+//     { threshold: [0] }
+// );
+
+// observer.observe(document.body);
+
+
+
 // Логика перевода
 
 document.addEventListener("DOMContentLoaded", () => {
