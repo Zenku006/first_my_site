@@ -51,16 +51,20 @@ body {
 
 .header_mini {
     background-color: rgba(0, 0, 0, 0.6);
-    box-shadow: 
-        0 6px 12px rgba(255, 232, 31, 0.4), 
-        0 0 25px rgba(30, 144, 255, 0.5);
-    padding: 10px 0; /* Уменьшаем внутренние отступы */
+    /* box-shadow: 
+        0 6px 12px rgba(255, 232, 31, 0.2), 
+        0 0 25px rgba(30, 144, 255, 0.2); */
+    padding: 5px 0; /* Уменьшаем внутренние отступы */
     height: auto; /* Автоматическая высота */
 }
 
 .header_mini h1 {
-    font-size: 2.1em; /* Уменьшаем размер заголовка */
+    font-size: 1.7em; /* Уменьшаем размер заголовка */
     margin: 0;
+}
+
+.header_mini li {
+    font-size: 0.92em;
 }
 
 
@@ -255,6 +259,63 @@ body {
     border-radius: 10px;
 }
 
+@media (max-width: 720px) {
+    section {
+        max-width: 720px; /* Ограничение ширины */
+        padding: 10px;
+    }
+    .ships-img{
+        max-width: 550px;
+    }
+    .poster{
+       max-width: 550px; 
+    }
+    section iframe{
+        max-width: 650px;
+    }
+    .poster{
+        flex-direction: column; /* Меняем направление элементов на столбец */
+        align-items: center; /* Центрируем элементы внутри */
+        text-align: center; /* Центрируем текст */
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        max-width: 480px; /* Ограничение ширины */
+        padding: 7px;
+    }
+    section iframe{
+        max-width: 300px;
+    }
+    .ship-card .ships-img{
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 320px) {
+    section {
+        max-width: 320px; /* Ограничение ширины */
+        padding: 6px;
+    }
+    section iframe{
+        max-width: 230px;
+    }
+    .ship-card .ships-img{
+        max-width: 220px;
+    }
+}
+
+@media (max-width: 240px) {
+    section {
+        max-width: 240px; /* Ограничение ширины */
+        padding: 5px;
+    }
+    section iframe{
+        max-width: 120px;
+    }
+}
+
 /* Основные стили для видео и аудио */
 video {
     max-width: 100%;
@@ -274,6 +335,7 @@ section {
     background-color: var(--card-color); /* Цвет карточки */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Лёгкая тень */
     max-width: 800px; /* Ограничение ширины */
+    align-items: center;
 }
 
 section h2, section h3 {
@@ -302,7 +364,8 @@ section p {
     }
 
     section {
-        padding: 15px;
+        max-width: 600px; /* Ограничение ширины */
+        padding: 10px;
     }
 }
 
@@ -360,6 +423,7 @@ audio:hover {
         opacity: 1;
     }
 }
+
 
 
 .poster {
@@ -449,19 +513,20 @@ img {
 }
 
 /* Адаптивность для мобильных устройств */
-@media (max-width: 600px) {
+@media (max-width: 720px) {
     .content {
         flex-direction: column; /* Меняем направление элементов на столбец */
         align-items: center; /* Центрируем элементы внутри */
         text-align: center; /* Центрируем текст */
     }
-
     .content img {
         max-width: 80%; /* Увеличиваем ширину изображения на мобильных устройствах */
     }
-
     .content p {
-        font-size: 14px; /* Уменьшаем размер шрифта для компактности */
+        font-size: 20px; /* Уменьшаем размер шрифта для компактности */
+    }
+    section iframe{
+        max-width: 500px;
     }
 }
 
